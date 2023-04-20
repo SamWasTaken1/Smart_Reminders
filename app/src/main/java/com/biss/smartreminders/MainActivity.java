@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Alarm set successfully", Toast.LENGTH_SHORT).show();
     }
 
-
     private void showTimePicker() {
 
         picker = new MaterialTimePicker.Builder()
@@ -113,11 +112,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (picker.getHour() > 12){
+                if (picker.getHour() >= 12){
 
                     binding.selectedTime.setText(
-                            String.format("%02d",(picker.getHour()-12)+" : "+String.format("%02d",picker.getMinute())+" PM")
-                    );
+                            String.format("%02d",(picker.getHour()-12))+" : "+String.format("%02d",picker.getMinute())+" PM"
+                            );
+
+                if (picker.getMinute() < 10){
+
+                    binding.selectedTime.setText(
+                            String.format("%02d",(picker.getHour()-12))+" : "+String.format("%02d",picker.getMinute())+" PM"
+                            );
+                    }
 
                 }else {
 

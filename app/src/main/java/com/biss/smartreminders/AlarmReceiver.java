@@ -21,6 +21,5 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
         notificationManagerCompat.notify(123,builder.build());
-
     }
 }
